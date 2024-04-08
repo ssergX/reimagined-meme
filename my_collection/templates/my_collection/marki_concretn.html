@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<ul class="list-articles">
+
+    <li>
+        <h2>{{post_concretn.name}}</h2>
+
+        {% if post_concretn.photo %}
+        <p><img class="img-article-left" src="{{post_concretn.photo.url}}"></p>
+        {% endif %}
+
+        {% autoescape off %}
+        {{post_concretn.opisanie|linebreaks|truncatewords:30}}
+        {% endautoescape %}
+
+
+        <div class="clear"></div>
+
+    </li>
+
+
+</ul>
+{% endblock %}

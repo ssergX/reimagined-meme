@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul class="list-articles">
+    {% for p in post_marki %}
+
+    <li>
+        <h2>{{p.name}}</h2>
+
+        {% if post_marki.photo %}
+        <p><img class="img-article-left" src="{{post_marki.photo.url}}"></p>
+        {% endif %}
+
+        {% autoescape off %}
+        {{p.opisanie|linebreaks|truncatewords:30}}
+        {% endautoescape %}
+
+
+        <div class="clear"></div>
+        <p class="link-read-post"><a href="{{ p.get_absolute_url }}"> Перейти </a></p>
+
+    </li>
+
+    {% endfor %}
+</ul>
+{% endblock %}
